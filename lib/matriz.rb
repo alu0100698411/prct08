@@ -1,5 +1,6 @@
 class Matriz
 
+
   #ACCESO ATRIBUTOS
   attr_reader :row, :col, :data
   
