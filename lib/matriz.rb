@@ -67,6 +67,63 @@ class Matriz
 	end
   end	
 
+  def +(other)   
+      if(other.row == @row && other.col == @col)
+        aux_matrix = Matriz.new(@row,@col)
+        for i in 1..row
+            for j in 1..col
+              aux_matrix[i,j] = @data[i][j]+other.data[i][j]
+            end
+        end        
+      end
+      aux_matrix
+  end
+  
+  def -(other)   
+      if(other.row == @row && other.col == @col)
+        aux_matrix = Matriz.new(@row,@col)
+        for i in 1..row
+            for j in 1..col
+              aux_matrix[i,j] = @data[i][j]-other.data[i][j]
+            end
+        end        
+      end
+      aux_matrix
+  end  
+  
+
+  def *(other) 
+      if (other.is_a? Fixnum)
+        aux_matrix = Matriz.new(@row,@col)
+        for i in 1..row
+            for j in 1..col
+              aux_matrix[i,j] = @data[i][j]*other
+            end
+        end        
+      elsif(other.is_a? Matriz)
+        if(other.row == @col)
+          aux_matrix = Matriz.new(@row,other.col)
+          for i in 1..aux_matrix.row
+              for j in 1..aux_matrix.col
+                  for k in 1..@col
+                    aux_matrix[i,j] += @data[i][k]*other.data[k][j]
+                  end                      
+              end
+          end
+        end
+      end
+      aux_matrix
+  end  
+  
+  def trasp()
+    aux_matrix = Matriz.new(@col,@row)
+    for i in 1..aux_matrix.row
+      for j in 1..aux_matrix.col  
+         aux_matrix[i,j] = @data[j][i]
+      end
+    end
+    aux_matrix
+  end
 
 
 end
