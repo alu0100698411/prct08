@@ -42,4 +42,31 @@ class Matriz
     end
     return "#{cadena}"
   end  
+
+  def [](x, y)
+    @data[x][y]
+  end
+
+  def []=(x, y, value)
+    @data[x][y] = value
+  end
+
+ def fillRow(row,array)
+	if(array.length > 0 && array.size()<=@col)
+		for j in 1..array.size()
+			@data[row][j] = array[j-1]
+		end
+	end
+  end
+
+  def fillCol(col,array)
+	if(array.length > 0 && array.size()<=@row)
+		for j in 1..array.size()
+			@data[j][col] = array[j-1]
+		end
+	end
+  end	
+
+
+
 end
