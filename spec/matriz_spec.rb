@@ -29,7 +29,7 @@ describe Matriz
 				c = @a[1,1]
 				c.to_s.should eq("4")  
 			 end
-			it "Inserción de la matriz" do
+			it "Insercion de la matriz" do
 				@a=Matriz.new(2,2,[4,3,2,1])
 				@a[1,1] = 5
 				@a.to_s.should eq("[5 3] \n[2 1] \n")  
