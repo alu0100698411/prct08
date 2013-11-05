@@ -46,3 +46,39 @@ describe Matriz
 				@a.to_s.should eq("[4 1] \n[2 1] \n")  
 			 end			
 	end
+	
+	describe "Pruebas operandos \n" do
+		  
+			it "Suma dos matrices" do
+				@a=Matriz.new(2,2,[4,3,2,1])
+				@b=Matriz.new(2,2,[1,2,3,4])
+				@c=@a+@b
+				@c.to_s.should eq("[5 5] \n[5 5] \n")  
+			 end
+
+			it "Resta dos matrices" do
+				@a=Matriz.new(2,2,[4,3,2,1])
+				@b=Matriz.new(2,2,[1,2,3,4])
+				@c=@a-@b
+				@c.to_s.should eq("[3 1] \n[-1 -3] \n")  
+			 end
+
+			it "Producto por escalar" do
+				@a=Matriz.new(2,2,1)
+				@c=@a*3
+				@c.to_s.should eq("[3 3] \n[3 3] \n")  
+			 end
+
+			it "Producto dos matrices" do
+				@a=Matriz.new(2,2,[4,3,2,1])
+				@b=Matriz.new(2,2,[1,2,3,4])
+				@c=@a*@b
+				@c.to_s.should eq("[13 20] \n[5 8] \n")  
+			 end
+
+			it "Traspuesta" do
+				@a=Matriz.new(2,2,[4,3,2,1])
+				@b=@a.trasp()
+				@b.to_s.should eq("[4 2] \n[3 1] \n")  
+			 end
+	end
